@@ -68,7 +68,6 @@
     <Compile Include="PoliciesModuleTests.cs" />
     <Compile Include="Policies\HasClaimPolicyTests.cs" />
     <Compile Include="Policies\InRolePolicyTests.cs" />
-    <Compile Include="Policies\IsAuthenticatedPolicyTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

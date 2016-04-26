@@ -51,7 +51,6 @@
     <Compile Include="PoliciesService.cs" />
     <Compile Include="Policies\HasClaimPolicy.cs" />
     <Compile Include="Policies\InRolePolicy.cs" />
-    <Compile Include="Policies\IsAuthenticatedPolicy.cs" />
     <Compile Include="PolicyContext.cs" />
     <Compile Include="Policy.cs" />
     <Compile Include="PoliciesModule.cs" />

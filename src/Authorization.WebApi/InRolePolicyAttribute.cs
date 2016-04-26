@@ -22,13 +22,6 @@ namespace Authorization.WebApi
             var dependencyScope = actionContext.Request.GetDependencyScope();
             var policiesService = (PoliciesService)dependencyScope.GetService(typeof(PoliciesService));
 
-            var isAuthenticated = await policiesService.ExecuteAsync<IsAuthenticatedPolicy>(user);
-
-            if (!isAuthenticated)
-            {
-                HandleUnauthenticated(actionContext);
-            }
-
             var isAuthorized = await policiesService.ExecuteAsync<InRolePolicy>(
                 user,
                 new InRolePolicyContext(Roles));

@@ -4,9 +4,11 @@ using System.Web.Http;
 
 namespace Authorization.Sample.Controllers
 {
+    [Authorize]
     public class HomeController : ApiController
     {
         [HttpGet]
+        [AllowAnonymous]
         [Route("")]
         public IHttpActionResult Root()
         {
