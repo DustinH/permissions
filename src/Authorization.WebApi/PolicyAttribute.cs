@@ -17,16 +17,37 @@ namespace Authorization.WebApi
             PolicyType = policyType;
         }
 
-        public Type PolicyType { get; set; }
+        public Type PolicyType { get; }
 
-        public override async Task OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+        protected virtual async Task<bool> ExecutePolicy(ClaimsPrincipal user, Policy policy)
         {
+            return await policy.ExecuteAsync(user).ConfigureAwait(false);
+        }
+
+        public sealed override async Task OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+        {
+            if (PolicyType == null)
+            {
+                throw new InvalidOperationException($"{nameof(PolicyType)} cannot be null.");
+            }
+
+            if (!typeof(Policy).IsAssignableFrom(PolicyType))
+            {
+                throw new InvalidOperationException(
+                    $"{PolicyType} does not implement {nameof(Policy)}.");
+            }
+
             var user = (ClaimsPrincipal)actionContext.RequestContext.Principal;
 
             var dependencyScope = actionContext.Request.GetDependencyScope();
-            var policiesService = (PoliciesService)dependencyScope.GetService(typeof(PoliciesService));
 
-            var isAuthorized = await policiesService.ExecuteAsync(PolicyType, user);
+            var policy = dependencyScope.GetService(PolicyType) as Policy;
+            if (policy == null)
+            {
+                throw new InvalidOperationException($"{PolicyType} is not registered.");
+            }
+
+            var isAuthorized = await ExecutePolicy(user, policy);
 
             if (!isAuthorized)
             {

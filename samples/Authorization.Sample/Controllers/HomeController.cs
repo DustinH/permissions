@@ -4,7 +4,7 @@ using System.Web.Http;
 
 namespace Authorization.Sample.Controllers
 {
-    [Authorize]
+    [Authenticate]
     public class HomeController : ApiController
     {
         [HttpGet]

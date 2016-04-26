@@ -18,7 +18,7 @@ namespace Authorization.Tests
             {
                 var policies = container.Resolve<IEnumerable<Policy>>();
 
-                Assert.Equal(3, policies.Count());
+                Assert.Equal(2, policies.Count());
             }
         }
     }
