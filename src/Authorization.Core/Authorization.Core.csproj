@@ -54,6 +54,7 @@
     <Compile Include="PolicyContext.cs" />
     <Compile Include="Policy.cs" />
     <Compile Include="PoliciesModule.cs" />
+    <Compile Include="PolicyRequirement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
