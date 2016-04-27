@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{CB29
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authorization.Sample", "samples\Authorization.Sample\Authorization.Sample.csproj", "{0C4D7F25-FAA6-47A3-B254-286ADCB5B9A8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authorization.Mvc", "src\Authorization.Mvc\Authorization.Mvc.csproj", "{3669CFC8-5CDC-4C31-B1BB-8C9917ABA38C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{0C4D7F25-FAA6-47A3-B254-286ADCB5B9A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C4D7F25-FAA6-47A3-B254-286ADCB5B9A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C4D7F25-FAA6-47A3-B254-286ADCB5B9A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3669CFC8-5CDC-4C31-B1BB-8C9917ABA38C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3669CFC8-5CDC-4C31-B1BB-8C9917ABA38C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3669CFC8-5CDC-4C31-B1BB-8C9917ABA38C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3669CFC8-5CDC-4C31-B1BB-8C9917ABA38C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
