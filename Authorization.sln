@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authorization.Sample", "sam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authorization.Mvc", "src\Authorization.Mvc\Authorization.Mvc.csproj", "{3669CFC8-5CDC-4C31-B1BB-8C9917ABA38C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authorization.MvcSample", "samples\Authorization.MvcSample\Authorization.MvcSample.csproj", "{C16B43A2-D41E-485C-B031-350CB1E1A591}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{3669CFC8-5CDC-4C31-B1BB-8C9917ABA38C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3669CFC8-5CDC-4C31-B1BB-8C9917ABA38C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3669CFC8-5CDC-4C31-B1BB-8C9917ABA38C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C16B43A2-D41E-485C-B031-350CB1E1A591}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C16B43A2-D41E-485C-B031-350CB1E1A591}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C16B43A2-D41E-485C-B031-350CB1E1A591}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C16B43A2-D41E-485C-B031-350CB1E1A591}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,5 +56,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{51122AAF-A108-4BAD-9B70-69F0583E37F1} = {5B6DC578-1700-413B-AEFB-BCA069E02F96}
 		{0C4D7F25-FAA6-47A3-B254-286ADCB5B9A8} = {CB29EC88-EDF6-4AD2-B3AC-374C77F76C68}
+		{C16B43A2-D41E-485C-B031-350CB1E1A591} = {CB29EC88-EDF6-4AD2-B3AC-374C77F76C68}
 	EndGlobalSection
 EndGlobal
