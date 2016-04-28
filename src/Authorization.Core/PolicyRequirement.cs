@@ -17,6 +17,6 @@ namespace Authorization
 
         public string EndpointPath { get; set; }
 
-        public ICollection<string> Policies { get; }
+        public ICollection<string> Policies { get; set; }
     }
 }
