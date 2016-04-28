@@ -73,6 +73,7 @@
     <Compile Include="AuthenticateAttribute.cs" />
     <Compile Include="InRolePolicyAttribute.cs" />
     <Compile Include="PolicyAttribute.cs" />
+    <Compile Include="PolicyScanner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
