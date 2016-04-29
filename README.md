@@ -6,7 +6,7 @@
 
 `ClaimsPrincipal` comes with a collection of claims associated with the user. This library determines if a Claim *exists* or *does not exist*. If a claim *exists* then a user is allowed to perform that action, otherwise they are not allowed to.
 
-**Note: while you could create more complex logic in your abilities, try to distinguish between an ability and business rule. Business rules, should be implemented in your application, and not as an `Ability`.** 
+**Note: while you could create more complex logic in your abilities, try to distinguish between an ability and business rule. Business rules should be implemented in your application, and not as an `Ability`.** 
 
 ## Getting Started
 
