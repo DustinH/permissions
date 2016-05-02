@@ -46,15 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompositePolicy.cs" />
-    <Compile Include="IPolicyContext.cs" />
-    <Compile Include="PoliciesService.cs" />
-    <Compile Include="Policies\HasClaimPolicy.cs" />
-    <Compile Include="Policies\InRolePolicy.cs" />
-    <Compile Include="PolicyContext.cs" />
-    <Compile Include="Policy.cs" />
-    <Compile Include="PoliciesModule.cs" />
-    <Compile Include="PolicyRequirement.cs" />
+    <Compile Include="CompositeAbility.cs" />
+    <Compile Include="IAbilityContext.cs" />
+    <Compile Include="AbilitiesService.cs" />
+    <Compile Include="Abilities\HasClaimAbility.cs" />
+    <Compile Include="Abilities\InRoleAbility.cs" />
+    <Compile Include="Ability.cs" />
+    <Compile Include="AbilitiesModule.cs" />
+    <Compile Include="AbilityRequirement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

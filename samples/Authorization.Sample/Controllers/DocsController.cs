@@ -12,7 +12,7 @@ namespace Authorization.Sample.Controllers
         [Route("docs")]
         public IHttpActionResult Get()
         {
-            var endpoints = Configuration.ScanEndpointsForPolicyRequirements();
+            var endpoints = Configuration.ScanApiEndpointsForRequirements();
 
             return Json(endpoints);
         }

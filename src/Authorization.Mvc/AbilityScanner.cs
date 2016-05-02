@@ -7,9 +7,9 @@ using System.Web.Mvc;
 
 namespace Authorization.Mvc
 {
-    public static class PolicyScanner
+    public static class AbilityScanner
     {
-        public static ICollection<PolicyRequirement> ScanMvcEndpointsForPolicyRequirements(Assembly assembly)
+        public static ICollection<AbilityRequirement> ScanMvcEndpointsForRequirements(Assembly assembly)
         {
             if (assembly == null)
                 throw new ArgumentNullException(nameof(assembly));
@@ -19,11 +19,11 @@ namespace Authorization.Mvc
                 .SelectMany(type => type.GetMethods(BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.Public))
                 .Where(m => !m.GetCustomAttributes(typeof(CompilerGeneratedAttribute), true).Any() &&
                     !m.GetCustomAttributes(typeof(NonActionAttribute), true).Any())
-                .Select(x => new PolicyRequirement
+                .Select(x => new AbilityRequirement
                 {
                     Controller = x.DeclaringType?.Name,
                     Action = x.Name,
-                    Policies = x.GetCustomAttributes(true).OfType<PolicyAttribute>().Select(y => y.PolicyType.Name).ToArray()
+                    Policies = x.GetCustomAttributes(true).OfType<CustomAttribute>().Select(y => y.AbilityType.Name).ToArray()
                 })
                 .ToArray();
         }

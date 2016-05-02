@@ -55,10 +55,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthenticateAttribute.cs" />
-    <Compile Include="ClaimPolicyAttribute.cs" />
+    <Compile Include="AbilityAttribute.cs" />
     <Compile Include="HttpConfigurationExtensions.cs" />
-    <Compile Include="InRolePolicyAttribute.cs" />
-    <Compile Include="PolicyAttribute.cs" />
+    <Compile Include="RoleAttribute.cs" />
+    <Compile Include="CustomAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

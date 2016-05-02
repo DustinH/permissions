@@ -1,4 +1,4 @@
-﻿using Autofac;
+using Autofac;
 using Autofac.Integration.WebApi;
 using System;
 using System.Net.Http;
@@ -27,8 +27,6 @@ namespace Authorization.Sample
             builder.RegisterApiControllers(ThisAssembly);
 
             builder.RegisterHttpRequestMessage(config);
-
-            //builder.RegisterWebApiFilterProvider(config);
 
             builder.RegisterWebApiModelBinderProvider();
             builder.RegisterWebApiModelBinders(ThisAssembly);

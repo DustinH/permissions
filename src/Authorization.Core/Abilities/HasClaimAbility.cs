@@ -1,21 +1,21 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace Authorization.Policies
+namespace Authorization.Abilities
 {
-    public class HasClaimPolicy : Policy
+    public class HasClaimAbility : Ability
     {
-        public override Task<bool> ExecuteAsync(ClaimsPrincipal user, params IPolicyContext[] args)
+        public override Task<bool> ExecuteAsync(ClaimsPrincipal user, params IAbilityContext[] args)
         {
             var argsExist = args != null || args.Any();
 
             Func<bool> hasClaim = () =>
             {
                 var claimTypes = args
-                    .Where(x => x.GetType() == typeof(HasClaimPolicyContext))
-                    .Cast<HasClaimPolicyContext>()
+                    .Where(x => x.GetType() == typeof(HasClaimAbilityContext))
+                    .Cast<HasClaimAbilityContext>()
                     .Select(x => x.ClaimType)
                     .SelectMany(x => x.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries))
                     .Select(x => x.Trim());
@@ -27,9 +27,9 @@ namespace Authorization.Policies
         }
     }
 
-    public class HasClaimPolicyContext : IPolicyContext
+    public class HasClaimAbilityContext : IAbilityContext
     {
-        public HasClaimPolicyContext(string claimType)
+        public HasClaimAbilityContext(string claimType)
         {
             ClaimType = claimType;
         }

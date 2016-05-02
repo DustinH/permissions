@@ -1,25 +1,25 @@
-﻿using Authorization.Policies;
-using Autofac;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Authorization.Abilities;
+using Autofac;
 using Xunit;
 
-namespace Authorization.Tests.Policies
+namespace Authorization.Tests.Abilities
 {
-    public class InRolePolicyTests
+    public class InRoleAbilityTests
     {
         private readonly IContainer container;
-        private readonly InRolePolicy sut;
+        private readonly InRoleAbility sut;
 
-        public InRolePolicyTests()
+        public InRoleAbilityTests()
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterModule<PoliciesModule>();
+            builder.RegisterModule<AbilitiesModule>();
 
             container = builder.Build();
 
-            sut = container.Resolve<InRolePolicy>();
+            sut = container.Resolve<InRoleAbility>();
         }
 
         [Fact]
@@ -42,7 +42,7 @@ namespace Authorization.Tests.Policies
 
             var isInRole = await sut.ExecuteAsync(
                 user,
-                new InRolePolicyContext(TestRole));
+                new InRoleAbilityContext(TestRole));
 
             Assert.True(isInRole);
         }
@@ -56,7 +56,7 @@ namespace Authorization.Tests.Policies
 
             var isInRole = await sut.ExecuteAsync(
                 user,
-                new InRolePolicyContext(TestRole));
+                new InRoleAbilityContext(TestRole));
 
             Assert.False(isInRole);
         }
@@ -73,7 +73,7 @@ namespace Authorization.Tests.Policies
 
             var isInRole = await sut.ExecuteAsync(
                 user,
-                new InRolePolicyContext($"BeforeRole, {TestRole}, AfterRole"));
+                new InRoleAbilityContext($"BeforeRole, {TestRole}, AfterRole"));
 
             Assert.True(isInRole);
         }

@@ -65,9 +65,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PoliciesModuleTests.cs" />
-    <Compile Include="Policies\HasClaimPolicyTests.cs" />
-    <Compile Include="Policies\InRolePolicyTests.cs" />
+    <Compile Include="AbilitiesModuleTests.cs" />
+    <Compile Include="Abilities\HasClaimAbilityTests.cs" />
+    <Compile Include="Abilities\InRoleAbilityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

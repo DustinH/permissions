@@ -1,4 +1,4 @@
-﻿using Autofac;
+using Autofac;
 using Autofac.Integration.WebApi;
 using Owin;
 using RimDev.Stuntman.Core;
@@ -26,7 +26,7 @@ namespace Authorization.Sample
             var builder = new ContainerBuilder();
 
             builder.RegisterModule(new WebApiModule(httpConfiguration));
-            builder.RegisterModule(new PoliciesModule(typeof(Startup).Assembly));
+            builder.RegisterModule(new AbilitiesModule(typeof(Startup).Assembly));
 
             var container = builder.Build();
 

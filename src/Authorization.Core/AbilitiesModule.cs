@@ -1,35 +1,35 @@
-﻿using Autofac;
+using Autofac;
 using Assembly = System.Reflection.Assembly;
 using System.Linq;
 
 namespace Authorization
 {
-    public class PoliciesModule : Module
+    public class AbilitiesModule : Module
     {
         private readonly Assembly[] assemblies;
 
-        public PoliciesModule()
+        public AbilitiesModule()
         {
             assemblies = new Assembly[] { };
         }
 
-        public PoliciesModule(params Assembly[] assemblies)
+        public AbilitiesModule(params Assembly[] assemblies)
         {
             this.assemblies = assemblies;
         }
 
         protected override void Load(ContainerBuilder builder)
         {
-            var assembly = typeof(Policy).Assembly;
+            var assembly = typeof(Ability).Assembly;
 
             var assembliesToRegister = assemblies.Union(new[] { assembly }).ToArray();
 
             builder.RegisterAssemblyTypes(assembliesToRegister)
-                .Where(t => typeof(Policy).IsAssignableFrom(t))
-                .As<Policy>()
+                .Where(t => typeof(Ability).IsAssignableFrom(t))
+                .As<Ability>()
                 .AsSelf();
 
-            builder.RegisterType<PoliciesService>().AsSelf();
+            builder.RegisterType<AbilitiesService>().AsSelf();
         }
     }
 }
