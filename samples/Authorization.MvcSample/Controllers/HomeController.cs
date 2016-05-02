@@ -1,7 +1,7 @@
 using System.Reflection;
 using System.Web.Mvc;
 using Authorization.Mvc;
-using Authorization.MvcSample.Policies;
+using Authorization.MvcSample.Abilities;
 
 namespace Authorization.MvcSample.Controllers
 {
@@ -9,13 +9,13 @@ namespace Authorization.MvcSample.Controllers
     {
         public ActionResult Index()
         {
-            var actions = PolicyScanner.ScanMvcEndpointsForPolicyRequirements(Assembly.GetExecutingAssembly());
+            var actions = AbilityScanner.ScanMvcEndpointsForRequirements(Assembly.GetExecutingAssembly());
 
             return Json(actions, JsonRequestBehavior.AllowGet);
         }
 
         [Authenticate]
-        [Policy(typeof(CustomPolicy))]
+        [Custom(typeof(CustomAbility))]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

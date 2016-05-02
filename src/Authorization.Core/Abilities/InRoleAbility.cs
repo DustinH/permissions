@@ -3,15 +3,15 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace Authorization.Policies
+namespace Authorization.Abilities
 {
     /// <summary>
     /// This is intended for retrofitting existing applications that use roles.
     /// For new applications, ideally roles are not used.
     /// </summary>
-    public class InRolePolicy : Policy
+    public class InRoleAbility : Ability
     {
-        public override Task<bool> ExecuteAsync(ClaimsPrincipal user, params IPolicyContext[] args)
+        public override Task<bool> ExecuteAsync(ClaimsPrincipal user, params IAbilityContext[] args)
         {
             if (args == null || !args.Any())
             {
@@ -19,8 +19,8 @@ namespace Authorization.Policies
             }
 
             var roles = args
-                .Where(x => x.GetType() == typeof(InRolePolicyContext))
-                .Cast<InRolePolicyContext>()
+                .Where(x => x.GetType() == typeof(InRoleAbilityContext))
+                .Cast<InRoleAbilityContext>()
                 .Select(x => x.Roles)
                 .SelectMany(x => x.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries))
                 .Select(x => x.Trim());
@@ -29,9 +29,9 @@ namespace Authorization.Policies
         }
     }
 
-    public class InRolePolicyContext : IPolicyContext
+    public class InRoleAbilityContext : IAbilityContext
     {
-        public InRolePolicyContext(string roles)
+        public InRoleAbilityContext(string roles)
         {
             Roles = roles?.Trim();
         }

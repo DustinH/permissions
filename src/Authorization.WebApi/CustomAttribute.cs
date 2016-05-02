@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net;
 using System.Net.Http;
 using System.Security.Claims;
@@ -10,41 +10,41 @@ using System.Web.Http.Filters;
 namespace Authorization.WebApi
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
-    public class PolicyAttribute : AuthorizationFilterAttribute
+    public class CustomAttribute : AuthorizationFilterAttribute
     {
-        public PolicyAttribute(Type policyType)
+        public CustomAttribute(Type abilityType)
         {
-            PolicyType = policyType;
+            AbilityType = abilityType;
         }
 
-        public Type PolicyType { get; }
+        public Type AbilityType { get; }
 
-        protected virtual async Task<bool> ExecutePolicy(ClaimsPrincipal user, Policy policy)
+        protected virtual async Task<bool> ExecutePolicy(ClaimsPrincipal user, Ability ability)
         {
-            return await policy.ExecuteAsync(user).ConfigureAwait(false);
+            return await ability.ExecuteAsync(user).ConfigureAwait(false);
         }
 
         public sealed override async Task OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
         {
-            if (PolicyType == null)
+            if (AbilityType == null)
             {
-                throw new InvalidOperationException($"{nameof(PolicyType)} cannot be null.");
+                throw new InvalidOperationException($"{nameof(AbilityType)} cannot be null.");
             }
 
-            if (!typeof(Policy).IsAssignableFrom(PolicyType))
+            if (!typeof(Ability).IsAssignableFrom(AbilityType))
             {
                 throw new InvalidOperationException(
-                    $"{PolicyType} does not implement {nameof(Policy)}.");
+                    $"{AbilityType} does not implement {nameof(Ability)}.");
             }
 
             var user = (ClaimsPrincipal)actionContext.RequestContext.Principal;
 
             var dependencyScope = actionContext.Request.GetDependencyScope();
 
-            var policy = dependencyScope.GetService(PolicyType) as Policy;
+            var policy = dependencyScope.GetService(AbilityType) as Ability;
             if (policy == null)
             {
-                throw new InvalidOperationException($"{PolicyType} is not registered.");
+                throw new InvalidOperationException($"{AbilityType} is not registered.");
             }
 
             var isAuthorized = await ExecutePolicy(user, policy);

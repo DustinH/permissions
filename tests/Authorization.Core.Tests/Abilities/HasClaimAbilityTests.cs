@@ -1,26 +1,26 @@
-﻿using Authorization.Policies;
-using Autofac;
 using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Authorization.Abilities;
+using Autofac;
 using Xunit;
 
-namespace Authorization.Tests.Policies
+namespace Authorization.Tests.Abilities
 {
-    public class HasClaimPolicyTests : IDisposable
+    public class HasClaimAbilityTests : IDisposable
     {
         private readonly IContainer container;
-        private readonly HasClaimPolicy sut;
+        private readonly HasClaimAbility sut;
 
-        public HasClaimPolicyTests()
+        public HasClaimAbilityTests()
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterModule<PoliciesModule>();
+            builder.RegisterModule<AbilitiesModule>();
 
             container = builder.Build();
 
-            sut = container.Resolve<HasClaimPolicy>();
+            sut = container.Resolve<HasClaimAbility>();
         }
 
         [Fact]
@@ -43,7 +43,7 @@ namespace Authorization.Tests.Policies
 
             var hasClaim = await sut.ExecuteAsync(
                 user,
-                new HasClaimPolicyContext(TestClaim));
+                new HasClaimAbilityContext(TestClaim));
 
             Assert.True(hasClaim);
         }
@@ -57,7 +57,7 @@ namespace Authorization.Tests.Policies
 
             var hasClaim = await sut.ExecuteAsync(
                 user,
-                new HasClaimPolicyContext(TestClaim));
+                new HasClaimAbilityContext(TestClaim));
 
             Assert.False(hasClaim);
         }
@@ -74,7 +74,7 @@ namespace Authorization.Tests.Policies
 
             var hasClaim = await sut.ExecuteAsync(
                 user,
-                new HasClaimPolicyContext($"BeforeRole, {TestClaim}, AfterRole"));
+                new HasClaimAbilityContext($"BeforeRole, {TestClaim}, AfterRole"));
 
             Assert.True(hasClaim);
         }

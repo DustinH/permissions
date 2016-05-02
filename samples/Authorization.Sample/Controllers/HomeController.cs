@@ -1,6 +1,6 @@
-﻿using Authorization.Sample.Policies;
 using Authorization.WebApi;
 using System.Web.Http;
+using Authorization.Sample.Abilities;
 
 namespace Authorization.Sample.Controllers
 {
@@ -17,7 +17,7 @@ namespace Authorization.Sample.Controllers
 
         [HttpGet]
         [Route("claim")]
-        [ClaimPolicy(Claim = "Awesome")]
+        [Ability("Awesome")]
         public IHttpActionResult ClaimPolicy()
         {
             return Ok("/claim");
@@ -25,7 +25,7 @@ namespace Authorization.Sample.Controllers
 
         [HttpGet]
         [Route("role")]
-        [InRolePolicy(Roles = "Administrator")]
+        [Role("Administrator")]
         public IHttpActionResult InRolePolicy()
         {
             return Ok("/role");
@@ -33,7 +33,7 @@ namespace Authorization.Sample.Controllers
 
         [HttpGet]
         [Route("custom")]
-        [Policy(typeof(CustomPolicy))]
+        [Custom(typeof(CustomAbility))]
         public IHttpActionResult CustomPolicy()
         {
             return Ok("/custom");

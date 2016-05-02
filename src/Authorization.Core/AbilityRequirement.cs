@@ -2,9 +2,9 @@ using System.Collections.Generic;
 
 namespace Authorization
 {
-    public class PolicyRequirement
+    public class AbilityRequirement
     {
-        public PolicyRequirement()
+        public AbilityRequirement()
         {
             Policies = new HashSet<string>();
         }
