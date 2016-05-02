@@ -8,8 +8,8 @@
     <ProjectGuid>{51122AAF-A108-4BAD-9B70-69F0583E37F1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Authorization.Tests</RootNamespace>
-    <AssemblyName>Authorization.Tests</AssemblyName>
+    <RootNamespace>RimDev.Permissions.Tests</RootNamespace>
+    <AssemblyName>RimDev.Permissions.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -74,9 +74,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Authorization.Core\Authorization.Core.csproj">
+    <ProjectReference Include="..\..\src\Core\Core.csproj">
       <Project>{fd770e34-40ad-4388-ba73-c34214fcc0c9}</Project>
-      <Name>Authorization.Core</Name>
+      <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

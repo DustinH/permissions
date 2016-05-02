@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authorization.Core", "src\Authorization.Core\Authorization.Core.csproj", "{FD770E34-40AD-4388-BA73-C34214FCC0C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "src\Core\Core.csproj", "{FD770E34-40AD-4388-BA73-C34214FCC0C9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5B6DC578-1700-413B-AEFB-BCA069E02F96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authorization.Core.Tests", "tests\Authorization.Core.Tests\Authorization.Core.Tests.csproj", "{51122AAF-A108-4BAD-9B70-69F0583E37F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Tests", "tests\Core.Tests\Core.Tests.csproj", "{51122AAF-A108-4BAD-9B70-69F0583E37F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authorization.WebApi", "src\Authorization.WebApi\Authorization.WebApi.csproj", "{D679AF01-0E10-4ADC-8DAE-01615FA1766E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "src\WebApi\WebApi.csproj", "{D679AF01-0E10-4ADC-8DAE-01615FA1766E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{CB29EC88-EDF6-4AD2-B3AC-374C77F76C68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authorization.Sample", "samples\Authorization.Sample\Authorization.Sample.csproj", "{0C4D7F25-FAA6-47A3-B254-286ADCB5B9A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiSample", "samples\WebApiSample\WebApiSample.csproj", "{0C4D7F25-FAA6-47A3-B254-286ADCB5B9A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authorization.Mvc", "src\Authorization.Mvc\Authorization.Mvc.csproj", "{3669CFC8-5CDC-4C31-B1BB-8C9917ABA38C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc", "src\Mvc\Mvc.csproj", "{3669CFC8-5CDC-4C31-B1BB-8C9917ABA38C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authorization.MvcSample", "samples\Authorization.MvcSample\Authorization.MvcSample.csproj", "{C16B43A2-D41E-485C-B031-350CB1E1A591}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcSample", "samples\MvcSample\MvcSample.csproj", "{C16B43A2-D41E-485C-B031-350CB1E1A591}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
